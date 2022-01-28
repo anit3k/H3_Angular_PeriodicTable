@@ -1,0 +1,13 @@
+<p>periodic-table works!</p>
+
+
+
+
+<div *ngFor="let period of periods; let i = index">
+    <h1>{{period.period}}</h1>
+    <!-- start of atom-->
+    <div *ngFor="let atom of period.atoms; let x = index">
+        <h5>{{atom.name}}</h5>
+        <p>{{atom.number}}</p>
+    </div>
+</div>

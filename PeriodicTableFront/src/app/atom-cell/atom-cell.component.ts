@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IAtomModel } from '../models/atomModel';
 
 @Component({
@@ -8,10 +8,17 @@ import { IAtomModel } from '../models/atomModel';
 })
 export class AtomCellComponent implements OnInit {
   
+  @Input() model: IAtomModel = {
+    name: '',
+    symbol: '',
+    period: 0,
+    number: 0,
+    xpos: 0,
+    ypos: 0,
+    hexcolor: ''
+  }; 
+  
   constructor() { }
 
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void { }
 }

@@ -7,8 +7,7 @@ import { IPeriodModel } from '../models/periodModel';
 })
 
 // this service is used to map the atom to each period
-export class MapperService {
-  
+export class MapperService {  
   
   // function to map atoms into periods, return an array of periods.
   mapAtoms(atoms: IAtomModel[]): IPeriodModel[] {
@@ -48,15 +47,8 @@ export class MapperService {
               result[9].atoms.push(atom)
             }
           break;
-          // case 9:          
-          // result[8].atoms.push(atom)
-          // break;
-          // case 10:          
-          // result[9].atoms.push(atom)
-          // break;        
       }
     }
-
     return result;
   }
 
@@ -82,7 +74,7 @@ export class MapperService {
       { period: 6, atoms: period6 },
       { period: 7, atoms: period7 },
       { period: 8, atoms: period8 },
-      { period: 9, atoms: period8 },
+      { period: 9, atoms: period9 },
       { period: 10, atoms: period10 }
 
     ];

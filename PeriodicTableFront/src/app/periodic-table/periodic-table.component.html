@@ -1,18 +1,12 @@
-<p>periodic-table works!</p>
-
-
-
-
-<div *ngFor="let period of periods; let i = index">
-    <tr>
-        <h1>{{period.period}}</h1>
-    </tr>
-    <!-- start of atom-->
-    <div *ngFor="let atom of period.atoms; let x = index">
-        <tr>
-            <atom-atom-cell [model]="atom"></atom-atom-cell>
+<br>
+<table>
+    <tbody>
+        <tr  *ngFor="let period of periods; let i = index">
+            <td *ngFor="let atom of period.atoms; let x = index"
+                [attr.colspan]="atom.symbol == '' ? 19 - period.atoms.length : 0"
+                style="height: 80px;">
+                <atom-atom-cell [model]="atom"></atom-atom-cell>
+            </td>
         </tr>
-        <!-- <h5>{{atom.name}}</h5> -->
-        <!-- <p>{{atom.number}}</p> -->
-    </div>
-</div>
+    </tbody>
+</table>

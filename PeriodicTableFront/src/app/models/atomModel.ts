@@ -6,5 +6,5 @@ export interface IAtomModel {
     number: number;
     xpos: number;
     ypos: number;
-    hexcolor: string;    
+    category: string;    
 }

@@ -1,13 +1,6 @@
-<div >
-    <table style="border: 1px; border-style: solid; margin: 10px; height: 50px; width: 50px;;">
-        <tr>
-            <h5>{{model.symbol}}</h5>
-        </tr>
-        <tr>
-            <p>{{model.name}}</p>
-        </tr>
-        <tr>
-            <small>{{model.number}}</small>
-        </tr>
-    </table>
+<div class="atom-style" [ngClass]="model.category" *ngIf="model.symbol != '' ">
+    <p class="atom-number text-right" >{{model.number}}</p>
+    <h6 class="text-center" >{{model.symbol}}</h6>
+    <p class="atom-name text-center" >{{model.name}}</p>
+    <p></p>
 </div>

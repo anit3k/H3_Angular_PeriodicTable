@@ -15,8 +15,10 @@ export class AtomCellComponent implements OnInit {
     number: 0,
     xpos: 0,
     ypos: 0,
-    hexcolor: ''
+    category: ''
   }; 
+
+  classes = "model.hexcolor"
   
   constructor() { }
 

@@ -1,0 +1,56 @@
+.diatomic.nonmetal {
+    background-color: #3e6418;
+}
+
+.alkali.metal {
+    background-color: #6d3a01;
+}
+
+.transition.metal {
+    background-color: #711019;
+}
+
+.post-transition.metal {
+    background-color: #013766;
+}
+
+.metalloid {
+    background-color: #7b8890;
+}
+
+.alkaline.earth.metal {
+    background-color: #856010;
+} 
+
+.noble.gas {
+    background-color: #8a60a8;
+}
+
+.halogens {
+    background-color: #3b95d3;
+}
+
+.lanthanide {
+    background-color: #402c17;
+}
+
+.actinide {
+    background-color: #722f4c;
+}
+
+.atom-style {
+    /* width:  100%; */
+    height: 80px ;
+    color: #fff;
+    /* margin-bottom: 0%; */
+}
+
+.atom-name {
+    font-size: 0.6em;
+    font-style: italic;
+}
+
+.atom-number {
+    font-size: 0.8em;
+    margin-left: 70px;
+}

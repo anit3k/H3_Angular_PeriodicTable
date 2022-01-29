@@ -19,18 +19,21 @@ export class MapperService {
         case 1:
           result[0].atoms.push(atom)
           if (atom.number == 1) {
+            // insert empty atom to do span in table
             result[0].atoms.push(this.createEmptyAtom());
           };
           break;
         case 2:
           result[1].atoms.push(atom)
           if (atom.number == 4) {
+            // insert empty atom to do span in table
             result[1].atoms.push(this.createEmptyAtom());
           };
           break;
         case 3:
           result[2].atoms.push(atom)
           if (atom.number == 12) {
+            // insert empty atom to do span in table
             result[2].atoms.push(this.createEmptyAtom());
           }
           break;
@@ -41,7 +44,8 @@ export class MapperService {
           result[4].atoms.push(atom)
           break;
         case 6:
-          if (atom.number == 57) { result[5].atoms.push(this.createSubgroupEmptyAtom(atom, 57.71)) }
+          if (atom.number == 57) { 
+            result[5].atoms.push(this.createSubgroupEmptyAtom(atom, 57.71)) } // instert sub information in atom
 
           if (atom.number < 57 || atom.number > 71) {
             result[5].atoms.push(atom)
@@ -51,15 +55,15 @@ export class MapperService {
               result[8].atoms.push(atom)  
             }            
             else {
-              result[8].atoms.push(this.createEmptyAtom())
-              result[8].atoms.push(this.createSubgroupEmptyAtom(atom, 57.71))
+              result[8].atoms.push(this.createEmptyAtom()) // insert empty atom to do span
+              result[8].atoms.push(this.createSubgroupEmptyAtom(atom, 57.71)) // instert sub information in atom
               result[8].atoms.push(atom)
             }
           }
           break;
         case 7:
           if (atom.number == 89) {
-            result[6].atoms.push(this.createSubgroupEmptyAtom(atom, 89.103))
+            result[6].atoms.push(this.createSubgroupEmptyAtom(atom, 89.103)) // instert sub information in atom
           }
           if (atom.number < 89 || atom.number > 103) {
 
@@ -71,20 +75,21 @@ export class MapperService {
               result[9].atoms.push(atom)  
             }            
             else {
-              result[9].atoms.push(this.createEmptyAtom())
-              result[9].atoms.push(this.createSubgroupEmptyAtom(atom, 57.71))
+              result[9].atoms.push(this.createEmptyAtom())// insert empty atom to do span
+              result[9].atoms.push(this.createSubgroupEmptyAtom(atom, 89.103)) // instert sub information in atom
               result[9].atoms.push(atom)
             }
           }
           break;
       }
     }
+    // Create an empty atom that will be used to make space between main table and "sub" table
     result[7].atoms.push(this.createEmptyAtom());
     return result;
   }
 
   private createSubgroupEmptyAtom(atom: IAtomModel, range: number): IAtomModel {
-    return { name: "Sub Group", symbol: "N/A", period: atom.period, xpos: atom.xpos, ypos: atom.ypos, category: atom.category, number: range };
+    return { name: "Sub Group", symbol: "SUB", period: atom.period, xpos: atom.xpos, ypos: atom.ypos, category: atom.category, number: range };
   }
 
   // empty atom is used make spans

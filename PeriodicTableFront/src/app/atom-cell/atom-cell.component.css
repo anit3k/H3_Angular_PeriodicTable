@@ -39,8 +39,8 @@
 }
 
 .atom-style {
-    /* width:  100%; */
-    height: 80px ;
+    width:  75px;
+    height: 75px ;
     color: #fff;
     /* margin-bottom: 0%; */
 }
@@ -52,5 +52,6 @@
 
 .atom-number {
     font-size: 0.8em;
-    margin-left: 70px;
+    text-align: end;
+    margin: 2px
 }

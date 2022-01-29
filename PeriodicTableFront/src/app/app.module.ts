@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PeriodicTableComponent } from './periodic-table/periodic-table.component';
 import { AtomCellComponent } from './atom-cell/atom-cell.component';
+import { NumberDotConvertPipe } from './pipes/number-dot-convert.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeriodicTableComponent,
-    AtomCellComponent
+    AtomCellComponent,
+    NumberDotConvertPipe
   ],
   imports: [
     BrowserModule,

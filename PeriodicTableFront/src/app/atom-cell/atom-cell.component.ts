@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IAtomModel } from '../models/atomModel';
+
 
 @Component({
   selector: 'atom-atom-cell',
@@ -17,8 +19,6 @@ export class AtomCellComponent implements OnInit {
     ypos: 0,
     category: ''
   }; 
-
-  classes = "model.hexcolor"
   
   constructor() { }
 

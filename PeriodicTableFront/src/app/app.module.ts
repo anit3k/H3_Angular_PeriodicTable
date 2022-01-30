@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PeriodicTableComponent } from './periodic-table/periodic-table.component';
 import { AtomCellComponent } from './atom-cell/atom-cell.component';
 import { NumberDotConvertPipe } from './pipes/number-dot-convert.pipe';
+import { AtomDetailComponent } from './atom-detail/atom-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PeriodicTableComponent,
     AtomCellComponent,
-    NumberDotConvertPipe
+    NumberDotConvertPipe,
+    AtomDetailComponent
   ],
   imports: [
     BrowserModule,

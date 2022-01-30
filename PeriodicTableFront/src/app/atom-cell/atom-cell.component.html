@@ -1,6 +1,5 @@
-<div class="atom-style" [ngClass]="model.category" *ngIf="model.symbol != '' ">
-    <p class="atom-number text-right" >{{model.number | numberDotConvert}}</p>
-    <h6 class="text-center" >{{model.symbol}}</h6>
-    <p class="atom-name text-center" >{{model.name}}</p>
-    <p></p>
+<div class="atom-style" [ngClass]="model.category" *ngIf="model.symbol">
+     <p class="atom-number text-right" >{{model.number | numberDotConvert}}</p>
+     <h6 class="text-center" >{{model.symbol}}</h6>
+     <p class="atom-name text-center" >{{model.name}}</p>
 </div>

@@ -11,7 +11,7 @@ import { IPeriodModel } from '../models/periodModel';
 // this class handels the http request
 export class ApiService {
 
-  baseUrl: string = "assets/data/data.json";
+  baseUrl: string = "http://localhost:5000/api/AtomInfo";
 
   constructor(private http: HttpClient) { }
 

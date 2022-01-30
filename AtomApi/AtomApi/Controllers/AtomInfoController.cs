@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AtomApi.Logic;
+using AtomApi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AtomApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AtomInfoController : Controller
     {
-        public IActionResult Index()
+        private AtomManager manager = new AtomManager();
+
+        [Route("")]
+        [HttpGet]
+        public ActionResult<List<AtomModel>> GetAll()
         {
-            return View();
+            return manager.AllAtoms;
         }
+
+
     }
 }

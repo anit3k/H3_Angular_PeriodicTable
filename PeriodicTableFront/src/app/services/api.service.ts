@@ -18,4 +18,8 @@ export class ApiService {
   getAtoms(): Observable<IAtomModel[]> {
     return this.http.get<IAtomModel[]>(this.baseUrl);
   }
+
+  getAtom(id: number) : Observable<IAtomModel> {
+    return this.http.get<IAtomModel>(this.baseUrl+id);
+  }
 }

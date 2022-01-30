@@ -3,6 +3,10 @@ using Newtonsoft.Json;
 
 namespace AtomApi.Logic
 {
+    /// <summary>
+    /// This class works as a manager to collect information from the .json file and convert to a list of atoms
+    /// Method to get specific atom is also implemented.
+    /// </summary>
     public class AtomManager
     {
         private List<AtomModel> _allAtoms;
@@ -23,6 +27,15 @@ namespace AtomApi.Logic
                 string tempData = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\data.json");
                 AllAtoms = JsonConvert.DeserializeObject<List<AtomModel>>(tempData);
             }
+        }
+
+        public AtomModel GetAtom(int id)
+        {
+            if (AllAtoms.Count > 0)
+            {
+                return AllAtoms.Find(x => x.Number == id);
+            }
+            return null;
         }
 
         public List<AtomModel> AllAtoms

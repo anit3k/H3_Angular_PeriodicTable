@@ -17,6 +17,12 @@ namespace AtomApi.Controllers
             return manager.AllAtoms;
         }
 
+        [Route("{id}")]
+        [HttpGet]
+        public ActionResult<object> GetAtom(int id)
+        {
+            return manager.GetAtom(id);
+        }
 
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AtomApi.Models
+﻿namespace AtomApi.Models
 {
     public class AtomModel
     {
@@ -16,6 +10,12 @@ namespace AtomApi.Models
         private int _xpos;
         private int _ypos;
         private string _category;
+        private string _appearance;
+        private float _atomicMass;
+        private string _discoveredBy;
+        private int[] _shells;
+        private string _source;
+        private string _summary;
         #endregion
 
         #region Constructor
@@ -60,6 +60,36 @@ namespace AtomApi.Models
         {
             get { return _category; }
             set { _category = value; }
+        }
+        public string Appearance
+        {
+            get { return _appearance; }
+            set { _appearance = value; }
+        }
+        public float Atomic_Mass
+        {
+            get { return _atomicMass; }
+            set { _atomicMass = value; }
+        }
+        public string Discovered_by
+        {
+            get { return _discoveredBy; }
+            set { _discoveredBy = value; }
+        }
+        public int[] Shells
+        {
+            get { return _shells; }
+            set { _shells = value; }
+        }
+        public string Source
+        {
+            get { return _source; }
+            set { _source = value; }
+        }
+        public string Summary
+        {
+            get { return _summary; }
+            set { _summary = value; }
         }
         #endregion
     }

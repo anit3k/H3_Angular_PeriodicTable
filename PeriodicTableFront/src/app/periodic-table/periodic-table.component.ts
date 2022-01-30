@@ -19,8 +19,8 @@ export class PeriodicTableComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.sub = this.api.getAtoms().subscribe( {
-      next: (getAtom: IAtomModel[]) => 
-        this.periods = this.mapper.mapAtoms(getAtom)   
+      next: (getAtoms: IAtomModel[]) => 
+        this.periods = this.mapper.mapAtoms(getAtoms)
     });    
   }
   

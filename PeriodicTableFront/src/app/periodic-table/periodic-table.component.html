@@ -1,8 +1,10 @@
 <br>
-<table>
-    <tbody>
-        <tr  *ngFor="let period of periods; let i = index">
-            <td *ngFor="let atom of period.atoms; let x = index"
+<div>
+
+    <table>
+        <tbody>
+            <tr  *ngFor="let period of periods; let i = index">
+                <td *ngFor="let atom of period.atoms; let x = index"
                 [attr.colspan]="atom.symbol == '' ? 19 - period.atoms.length : 0"
                 style="height: 80px;">
                 <atom-atom-cell [model]="atom"></atom-atom-cell>
@@ -10,3 +12,8 @@
         </tr>
     </tbody>
 </table>
+</div>
+<div>
+
+    <atom-atom-detail ></atom-atom-detail>
+</div>

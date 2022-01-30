@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { IAtomModel } from '../models/atomModel';
 import { IPeriodModel } from '../models/periodModel';
+import { AtomDetailModel } from '../models/AtomDetailsModel';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,9 @@ export class ApiService {
 
   getAtoms(): Observable<IAtomModel[]> {
     return this.http.get<IAtomModel[]>(this.baseUrl);
-  }
+  };
 
-  getAtom(id: number) : Observable<IAtomModel> {
-    return this.http.get<IAtomModel>(this.baseUrl+id);
-  }
+  getAtom(id: number) : Observable<AtomDetailModel> {
+    return this.http.get<AtomDetailModel>(this.baseUrl+id);
+  };
 }

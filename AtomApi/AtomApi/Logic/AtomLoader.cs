@@ -29,18 +29,7 @@ namespace AtomApi.Logic
                 string tempData = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\data.json");
                 AllAtoms = JsonConvert.DeserializeObject<List<AtomModel>>(tempData);
             }
-        }
-
-        //public AtomModel GetAtom(int id)
-        //{
-        //    if (AllAtoms.Count > 0)
-        //    {
-        //        return AllAtoms.Find(x => x.Number == id);
-        //    }
-        //    return null;
-        //}
-
-        
+        }        
 
         public AtomModel GetAtomDetail(int id)
         {
@@ -59,13 +48,10 @@ namespace AtomApi.Logic
             set { _allAtoms = value; }
         }
 
-
         public AtomModel AtomDetail
         {
             get { return _atomDetail; }
             set { _atomDetail = value; }
         }
-
-
     }
 }

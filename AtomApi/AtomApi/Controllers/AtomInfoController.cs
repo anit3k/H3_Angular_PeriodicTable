@@ -8,20 +8,20 @@ namespace AtomApi.Controllers
     [ApiController]
     public class AtomInfoController : Controller
     {
-        private AtomManager manager = new AtomManager();
+        private IAtomLoader manager = new AtomLoader();
 
         [Route("")]
         [HttpGet]
-        public ActionResult<List<AtomModel>> GetAll()
+        public ActionResult<IEnumerable<AtomModel>> GetAll()
         {
-            return manager.AllAtoms;
+            return manager.GetAllAtoms();
         }
 
         [Route("{id}")]
         [HttpGet]
-        public ActionResult<object> GetAtom(int id)
+        public ActionResult<AtomModel> GetAtom(int id)
         {
-            return manager.GetAtom(id);
+            return manager.GetAtomDetail(id);
         }
 
     }

@@ -7,20 +7,22 @@ namespace AtomApi.Logic
     /// This class works as a manager to collect information from the .json file and convert to a list of atoms
     /// Method to get specific atom is also implemented.
     /// </summary>
-    public class AtomManager
+    public class AtomLoader : IAtomLoader
     {
         private List<AtomModel> _allAtoms;
+        private AtomModel _atomDetail;
+        
 
-        public AtomManager()
+        public AtomLoader()
         {   
             AllAtoms = new List<AtomModel>();
             if (AllAtoms.Count == 0)
             {
-                GetAllAtoms();
+                LoadAllAtoms();
             }
         }
 
-        private void GetAllAtoms()
+        private void LoadAllAtoms()
         {
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\data.json"))
             {
@@ -29,13 +31,26 @@ namespace AtomApi.Logic
             }
         }
 
-        public AtomModel GetAtom(int id)
+        //public AtomModel GetAtom(int id)
+        //{
+        //    if (AllAtoms.Count > 0)
+        //    {
+        //        return AllAtoms.Find(x => x.Number == id);
+        //    }
+        //    return null;
+        //}
+
+        
+
+        public AtomModel GetAtomDetail(int id)
         {
-            if (AllAtoms.Count > 0)
-            {
-                return AllAtoms.Find(x => x.Number == id);
-            }
-            return null;
+            AtomDetail = AllAtoms.Find(x => x.Number == id);
+            return AtomDetail;
+        }
+
+        public List<AtomModel> GetAllAtoms()
+        {
+            return AllAtoms;
         }
 
         public List<AtomModel> AllAtoms
@@ -43,6 +58,14 @@ namespace AtomApi.Logic
             get { return _allAtoms; }
             set { _allAtoms = value; }
         }
+
+
+        public AtomModel AtomDetail
+        {
+            get { return _atomDetail; }
+            set { _atomDetail = value; }
+        }
+
 
     }
 }

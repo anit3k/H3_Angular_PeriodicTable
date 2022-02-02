@@ -1,4 +1,6 @@
-﻿namespace AtomApi.Models
+﻿using Newtonsoft.Json;
+
+namespace AtomApi.Models
 {
     public class AtomModel
     {
@@ -16,13 +18,20 @@
         private int[] _shells;
         private string _source;
         private string _summary;
+        
         #endregion
 
         #region Constructor
         public AtomModel()
         {
-
+           
         }
+        #endregion
+
+        #region Methods
+       
+
+       
         #endregion
 
         #region Properties
@@ -91,6 +100,9 @@
             get { return _summary; }
             set { _summary = value; }
         }
+
+      
+
         #endregion
     }
 }

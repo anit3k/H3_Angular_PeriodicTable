@@ -4,24 +4,39 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AtomApi.Controllers
 {
+    /// <summary>
+    /// This is the controller of the atoms api.
+    /// The idea to implement the factory pattern, was to make the controller less dependent on the atom loader class.
+    /// Also great fun to try
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AtomInfoController : Controller
     {
-        private IAtomLoader manager = new AtomLoader();
-
         [Route("")]
         [HttpGet]
         public ActionResult<IEnumerable<AtomModel>> GetAll()
         {
-            return manager.GetAllAtoms();
+            return getAllAtoms(new AtomLoadCreater());
         }
 
         [Route("{id}")]
         [HttpGet]
-        public ActionResult<AtomModel> GetAtom(int id)
+        public ActionResult<object> GetAtom(int id)
         {
-            return manager.GetAtomDetail(id);
+            return getDetail(new AtomLoadCreater(), id);
+        }
+
+
+        private List<AtomModel> getAllAtoms(Creator creator)
+        {
+            return creator.GetAllAtoms();
+        }
+
+        private object getDetail(Creator creator,int id)
+        {
+            return creator.GetSingleAtom(id);
+            
         }
 
     }

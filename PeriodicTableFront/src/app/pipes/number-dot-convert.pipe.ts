@@ -6,8 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NumberDotConvertPipe implements PipeTransform {
 
   transform(value: number): string {
-    console.log(value)
-
+ 
     if (value == 57.71) {
       return "57 - 71"
     }

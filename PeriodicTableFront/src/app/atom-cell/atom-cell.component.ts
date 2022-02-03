@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IAtomModel } from '../models/atomModel';
 
-
 @Component({
   selector: 'atom-atom-cell',
   templateUrl: './atom-cell.component.html',

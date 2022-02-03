@@ -17,13 +17,16 @@ namespace AtomApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<AtomModel>> GetAll()
         {
+            Console.WriteLine("Request for all atoms!");
             return getAllAtoms(new AtomLoadCreater());
+            
         }
 
         [Route("{id}")]
         [HttpGet]
         public ActionResult<object> GetAtom(int id)
         {
+            Console.WriteLine($"Request for atom number {id}");
             return getDetail(new AtomLoadCreater(), id);
         }
 

@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { IAtomModel } from '../models/atomModel';
 import { IPeriodModel } from '../models/periodModel';
-import { AtomDetailModel } from '../models/AtomDetailsModel';
+import { AtomDetailModel } from '../models/atomDetailsModel';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { AtomDetailModel } from '../models/AtomDetailsModel';
 // this class handels the http request
 export class ApiService {
 
-  baseUrl: string = "http://localhost:5000/api/AtomInfo";
+  baseUrl: string = "http://localhost:5000/api/AtomInfo/";
 
   constructor(private http: HttpClient) { }
 

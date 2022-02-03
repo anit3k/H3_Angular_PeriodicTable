@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AtomDetailModel } from '../models/AtomDetailsModel';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AtomDetailModel } from '../models/atomDetailsModel';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ApiService } from '../services/api.service';
   templateUrl: './atom-detail.component.html',
   styleUrls: ['./atom-detail.component.css']
 })
-export class AtomDetailComponent implements OnInit {
+export class AtomDetailComponent implements OnInit, OnDestroy, OnChanges{
 
   "atomDetail": AtomDetailModel = {
     name: "fake",
@@ -22,19 +23,34 @@ export class AtomDetailComponent implements OnInit {
     discovered_by: "fake man",
     shells: [NaN, NaN],
     source: "Not here",
-    summary: "nothing to tell"
-
-  }
-
-  // @input atomNum: number = 0;
-
+    summary: "nothing to tell" 
+  };
+  
+  @Input() atomNum: number = 1;
+  sub!: Subscription;
+  
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
-    this.api.getAtom(1).subscribe({
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("Method: onChanges child atom number: " + changes['atomNum'].currentValue)
+    this.updateAtomDetail(changes['atomNum'].currentValue)
+  }
+  
+  updateAtomDetail(newAtomDetail: number): void {
+    this.sub = this.api.getAtom(newAtomDetail).subscribe({
       next: (getAtomDetail: AtomDetailModel) =>
       this.atomDetail = getAtomDetail
-    });
+    });    
+  }
+  
+  ngOnInit(): void {
+    this.sub = this.api.getAtom(this.atomNum).subscribe({
+    next: (getAtomDetail: AtomDetailModel) =>
+    this.atomDetail = getAtomDetail
+  });    
   }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }  
 }

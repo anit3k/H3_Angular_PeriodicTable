@@ -1,3 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {background-color: black;}
+
+.textBaseColor {
+    margin: 10pt;
+    color: blueviolet;
+}

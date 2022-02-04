@@ -1,16 +1,91 @@
-<div >
-    <div>
-        <label for="">Atom Name:</label>
-        <p>{{atomDetail.name}}</p>
-        <p>{{atomDetail.symbol}}</p>
-        <p>{{atomDetail.number}}</p>
-        <p>{{atomDetail.period}}</p>
-        <p>{{atomDetail.category}}</p>
-        <p>{{atomDetail.appearance}}</p>
-        <p>{{atomDetail.atomic_mass}}</p>
-        <p>{{atomDetail.discovered_by}}</p>
-        <p>{{atomDetail.shells}}</p>
-        <p>{{atomDetail.source}}</p>
-        <p>{{atomDetail.summary}}</p>
-    </div>
-</div>
+<hr>
+<table>
+    <tr>
+        <td>
+            <p class="labelColor">Atom Name:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.name}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atom symbol:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.symbol}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atom Number:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.number}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atom Period:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.period}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atom Category:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.category}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atom Appearance:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.appearance}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Atomic Mass:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.atomic_mass}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Discovered By</p>
+        </td>
+        <td>
+            <p class="labelColor">{{atomDetail.discovered_by}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Number Electrons In Shells:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.shells}}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="labelColor">Sourece:</p>
+        </td>
+        <td>
+            <p>{{atomDetail.source}}</p>
+        </td>
+    </tr>
+    <tr>
+        <p class="labelColor">Description:</p>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>{{atomDetail.summary}}</p>
+        </td>
+    </tr>
+</table>

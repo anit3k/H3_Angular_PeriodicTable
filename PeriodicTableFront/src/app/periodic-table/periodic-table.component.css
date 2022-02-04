@@ -1,3 +1,4 @@
-rowStyle {
-    height: 80px;
-}
+.overlay-text {
+    align-self: flex-start;
+    transform: translateX(+350%);
+  }

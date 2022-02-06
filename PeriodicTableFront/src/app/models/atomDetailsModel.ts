@@ -1,5 +1,6 @@
 import { IAtomModel } from "./atomModel";
 
+// this model is used for the detailed view of a atom
 export class AtomDetailModel implements IAtomModel{
     // implemented from IAtomModel
     "name": string;
@@ -12,7 +13,7 @@ export class AtomDetailModel implements IAtomModel{
 
     // Added for ekstra details
     "appearance": string;
-    "atomic_mass": number;
+    "atomic_Mass": number;
     "discovered_by": string;
     "shells": number[];
     "source": string;

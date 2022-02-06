@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IAtomModel } from '../models/atomModel';
 import { IPeriodModel } from '../models/periodModel';
 import { ApiService } from '../services/api.service';
@@ -31,6 +31,7 @@ export class PeriodicTableComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe;
   } 
 
+  // this method is used to get the atom number to view the details of the specific atom
   mouseenterFunction(id: number){
     this.atomDetailNum = id;    
   }

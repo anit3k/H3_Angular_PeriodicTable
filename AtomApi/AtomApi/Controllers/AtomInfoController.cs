@@ -13,34 +13,39 @@ namespace AtomApi.Controllers
     [ApiController]
     public class AtomInfoController : Controller
     {
+        /// <summary>
+        /// Gets all the known atoms and returns a .json array.
+        /// </summary>
+        /// <returns>.json array of all atoms</returns>
         [Route("")]
         [HttpGet]
         public ActionResult<IEnumerable<AtomModel>> GetAll()
         {
-            Console.WriteLine("Request for all atoms!");
             return getAllAtoms(new AtomLoadCreater());
             
         }
 
+        /// <summary>
+        /// Take in the atom number and returns the details about that specific atom an a .json format
+        /// </summary>
+        /// <param name="id">Atom number</param>
+        /// <returns>Atom details</returns>
         [Route("{id}")]
         [HttpGet]
         public ActionResult<object> GetAtom(int id)
         {
-            Console.WriteLine($"Request for atom number {id}");
             return getDetail(new AtomLoadCreater(), id);
         }
-
 
         private List<AtomModel> getAllAtoms(Creator creator)
         {
             return creator.GetAllAtoms();
         }
 
-        private object getDetail(Creator creator,int id)
+        private object getDetail(Creator creator, int id)
         {
             return creator.GetSingleAtom(id);
             
         }
-
     }
 }

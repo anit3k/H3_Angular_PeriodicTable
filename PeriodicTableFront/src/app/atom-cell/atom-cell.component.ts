@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { IAtomModel } from '../models/atomModel';
 
 @Component({
@@ -7,8 +6,9 @@ import { IAtomModel } from '../models/atomModel';
   templateUrl: './atom-cell.component.html',
   styleUrls: ['./atom-cell.component.css']
 })
-export class AtomCellComponent implements OnInit {
+export class AtomCellComponent{
   
+  // empty model to be populated by the api get request
   @Input() model: IAtomModel = {
     name: '',
     symbol: '',
@@ -20,6 +20,4 @@ export class AtomCellComponent implements OnInit {
   }; 
   
   constructor() { }
-
-  ngOnInit(): void { }
 }

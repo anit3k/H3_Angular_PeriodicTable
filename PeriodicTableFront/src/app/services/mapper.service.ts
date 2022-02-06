@@ -35,18 +35,18 @@ export class MapperService {
           this.addAtomToPeriod(result, atom);
           break;
         case 6:
-          this.CheckIfSubgroupInformationAtomNeededToPeriod(atom, result, 57, 57.71); 
+          this.CheckIfSubgroupInformationNeededToPeriod(atom, result, 57, 57.71); 
           if (atom.number > 56 && atom.number < 72) {
-            this.createSubPeriod(result, atom, 8, 57.71);
+            this.addToSubPeriod(result, atom, 8, 57.71);
           }
           else {
             this.addAtomToPeriod(result, atom);
           }
           break;
         case 7:
-          this.CheckIfSubgroupInformationAtomNeededToPeriod(atom, result, 89, 89.103);
+          this.CheckIfSubgroupInformationNeededToPeriod(atom, result, 89, 89.103);
           if (atom.number > 88 && atom.number < 104) {
-            this.createSubPeriod(result, atom, 9, 89.103);
+            this.addToSubPeriod(result, atom, 9, 89.103);
           }
           else {
             this.addAtomToPeriod(result, atom);
@@ -66,30 +66,33 @@ export class MapperService {
   // region: methods to add a empty atom, used for span in table view
   private checkIfSpanAtomIsNeeded(atom: IAtomModel, result: IPeriodModel[], atomNumber: number, periodArrNum: number) {
     if (atom.number == atomNumber) {
-      // insert empty atom to do span in table
       this.createSpanAtom(result, periodArrNum);
     };
   }
+  // this methos is used do spanning in the table view
   private createSpanAtom(result: IPeriodModel[], periodArrNum: number) {
     result[periodArrNum].atoms.push(this.createEmptyAtom());
   }
+  // this method is used to make empty atoms to make spaces in the wiev model
   private createEmptyAtom(): IAtomModel {
     return { name: "", symbol: "", period: NaN, xpos: NaN, ypos: NaN, category: "", number: NaN, };
   }
   // region end
 
-  // region: create sub periods and information atoms needed
-  private CheckIfSubgroupInformationAtomNeededToPeriod(atom: IAtomModel, result: IPeriodModel[], atomSubgroupNumber: Number, atomSubgroupRange: number) {
+  // region: create sub periods and information atoms/cells needed
+  private CheckIfSubgroupInformationNeededToPeriod(atom: IAtomModel, result: IPeriodModel[], atomSubgroupNumber: Number, atomSubgroupRange: number) {
     if (atom.number == atomSubgroupNumber) {
       result[atom.period-1].atoms.push(this.createSubgroupInformationAtom(atom, atomSubgroupRange));
     }
   }
+  // this methods creates the "cells" to show the user sub groups
   private createSubgroupInformationAtom(atom: IAtomModel, range: number): IAtomModel {
     return { name: "Sub Group", symbol: "SUB", period: atom.period, xpos: atom.xpos, ypos: atom.ypos, category: atom.category, number: range };
   }
-
-  private createSubPeriod(result: IPeriodModel[], atom: IAtomModel, periodSubNum: number, atomNumRange: number) {
-    if (result[periodSubNum].atoms.length != 0) {
+  // this method add the atom to sub periods to make the period table more readable
+  private addToSubPeriod(result: IPeriodModel[], atom: IAtomModel, periodSubNum: number, atomNumRange: number) {
+    if (result[periodSubNum].atoms.length != 0) { 
+      // adds atom to sub period
       result[periodSubNum].atoms.push(atom);
     }
     else { // populates the empty array with correct structure to make view correct
@@ -100,6 +103,7 @@ export class MapperService {
   }  
   // region end
 
+  // Adds normal atom to correct period
   private addAtomToPeriod(result: IPeriodModel[], atom: IAtomModel) {
     result[atom.period-1].atoms.push(atom);
   }

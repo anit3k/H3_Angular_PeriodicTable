@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+
 import { Subscription } from 'rxjs';
 import { AtomDetailModel } from '../models/atomDetailsModel';
 import { ApiService } from '../services/api.service';
@@ -10,30 +11,31 @@ import { ApiService } from '../services/api.service';
 })
 export class AtomDetailComponent implements OnInit, OnDestroy, OnChanges{
 
+  // empty model to be populated by the api get request
   "atomDetail": AtomDetailModel = {
-    name: "fake",
-    symbol: "fake",
+    name: "",
+    symbol: "",
     period: NaN,
     number: NaN,
     xpos: NaN,
     ypos: NaN,
-    category: "none",
-    appearance: "fake",
-    atomic_mass: NaN,
-    discovered_by: "fake man",
+    category: "",
+    appearance: "",
+    atomic_Mass: NaN,
+    discovered_by: "",
     shells: [NaN, NaN],
-    source: "Not here",
-    summary: "nothing to tell" 
+    source: "",
+    summary: "" 
   };
   
+  // input from "mother" component, gets the atom number used en det http get request
   @Input() atomNum: number = 1;
   sub!: Subscription;
   
   constructor(private api: ApiService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("Method: onChanges child atom number: " + changes['atomNum'].currentValue)
-    this.updateAtomDetail(changes['atomNum'].currentValue)
+    this.updateAtomDetail(changes['atomNum'].currentValue)    
   }
   
   updateAtomDetail(newAtomDetail: number): void {

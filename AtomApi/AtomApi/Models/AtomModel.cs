@@ -2,6 +2,9 @@
 
 namespace AtomApi.Models
 {
+    /// <summary>
+    /// Represent the model of atom to be sent to spa
+    /// </summary>
     public class AtomModel
     {
         #region fields
@@ -26,12 +29,6 @@ namespace AtomApi.Models
         {
            
         }
-        #endregion
-
-        #region Methods
-       
-
-       
         #endregion
 
         #region Properties
@@ -100,9 +97,6 @@ namespace AtomApi.Models
             get { return _summary; }
             set { _summary = value; }
         }
-
-      
-
         #endregion
     }
 }
